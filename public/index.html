@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+    <title>Image Board</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- StartZurück12345WeiterEnde-->
+    <div id="main">
+        <div id="setup">
+            <h1 >Julian's Imageboard</h1>
+            <h2 >Nice to have you here, <span id="setup-name">{{form.username}}</span></h2>
+
+            <form id="form" autocomplete="off" method="POST" @submit.prevent="handleSubmit">
+                <div id="setupleft">
+                    <input v-model="form.title" type="text" name="title" placeholder="Title" />
+                    <input v-model="form.description" type="text" name="description" placeholder="Description" />
+                    <input v-model="form.username" type="text" name="username" placeholder="Username" />
+                    <input v-model="form.tags" type="text" name="tags" placeholder="Tags (comma seperated) " />
+                    
+                </div>
+                <div id="setupright">
+                    <label class="input-file">
+                        Choose Picture on Local Machine<br><input @change="handleFile" type="file" name="file" accept="image/*"/>
+                    </label>
+                    <input v-model="form.externalurl" type="url" name="external-url" placeholder="external Link" />
+                    <p v-if="error" class="warning">No valid image! :(</p>
+                    <p v-if="confirmation" class="confirmation">Thank you! :)</p>
+                    <button type="submit" class="btn">Upload</button>
+                </div>
+                <div  id="setupwordspace">
+                    <span @click="getImagesByTag(word.name)" class="wordspace-tag" v-for="word in words" :style="'font-size:'+ (word.value*5+12) +'px;font-weight:'+word.value*200">{{word.name}}</span>
+                    
+                </div>
+            </form>
+        </div>
+        <div  class="grid-container">
+            <div @click="openModal(image.id)" class="image" v-for="image in images">
+                <img :src="image.url">
+                <p id="img-title">{{image.title}}</p>
+            </div>
+            
+        </div>
+        <div class="pagination">
+            <button @click="moreImages" v-if="showMoreButton" class="btn">Show more</button>
+            <button @click="getImages" v-if="showAllButton" class="btn">Show all again</button>
+        </div>
+        <modal @receive-images-by-tag="showImagesByTag" @close="closeModal" v-if="id" v-bind:images="images" v-bind:id="id"></modal>
+    </div>
+
+    <script type="text/x-template" id="modal">
+     <div id="dark">
+        <div id="modalframe">
+            <p @click="closeModal" id="closeModal">X</p>
+            <h1>{{image.title}}</h1>
+            <div id="imageBigContainer">
+                <img :src="image.url" id="imageBig" >
+                <div id="modalNav">
+                    <a  :href="'/#'+image.next" ><<<</a>
+                    <a  :href="'/#'+image.previous">>>></a>
+                    <!--@click="nextImage"  @click="previousImage"-->
+                </div>
+            </div>
+           <div id="addInfo">
+                <h2>{{image.description}}</h2>
+                <a v-for="tag in image.tags" id="modalTags" @click="getImagesByTag(tag)">{{tag}} </a>
+                <h3>Uploaded by {{image.username}} on {{image.created_at}}</h3>
+           </div>
+            <comments v-bind:id="id"></comments>
+        </div>
+    </div>  
+    </script>
+
+    <script type="text/x-template" id="comments">
+     
+             <div id="commentsContainer">
+                <form id="commentsForm" autocomplete="off" method="POST" @submit.prevent="addComment">
+                    <input  v-model="comment"type="text" name="comment" placeholder="Comment" />
+                    <input  v-model="username" type="text" name="username" placeholder="Username" />
+                    <p v-if="error" class="warning">No comment added.</p>
+                    <button type="submit" class="btn" id="modal-comment-button">Add Comment</button>
+                </form>
+                <div v-for="comment in comments" id="showCommentsArea">
+                <p class="entry"> {{comment.comment}} </p><p class="entryInfo">by {{comment.username}} on {{comment.created_at}}</p>
+                </div>
+                </div>
+
+            </div>
+     
+    </script>
+    <script src="/js/vue.js"></script>
+    <script src="https://unpkg.com/axios@0.20.0-0/dist/axios.min.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>

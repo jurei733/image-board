@@ -1,0 +1,393 @@
+body {
+    background-color: steelblue;
+    margin: 0 auto;
+}
+
+#setup {
+    text-align: center;
+    color: white;
+}
+
+#setup h1 {
+    font-size: 40px;
+    color: white;
+    margin-bottom: 10px;
+    font-family: Brush Script MT;
+    font-size: 100px;
+}
+
+#setup h2 {
+    font-size: 25px;
+    color: white;
+    padding-bottom: 20px;
+    border-bottom: white solid 2px;
+}
+
+#setup-name {
+    color: rgb(255, 197, 89);
+}
+
+#form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: white solid 2px;
+}
+
+#setupleft {
+    margin-right: 80px;
+}
+
+#setupright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 80px;
+}
+
+.warning {
+    background-color: rgb(221, 144, 144);
+    color: red;
+    font-size: 30px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.confirmation {
+    background-color: rgb(92, 182, 89);
+    color: rgb(26, 84, 7);
+    font-size: 30px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#setupwordspace {
+    border: white 2px dotted;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 300px;
+}
+
+#setupwordspace:hover {
+    opacity: 0.9;
+}
+
+.wordspace-tag {
+    margin: 5px;
+    cursor: pointer;
+}
+
+.wordspace-tag:hover {
+    color: rgb(255, 197, 89);
+}
+
+input[type="file"] {
+    opacity: 0;
+    -moz-opacity: 0;
+    /* IE 5-7 */
+    filter: alpha(Opacity=0);
+    /* Safari  */
+    -khtml-opacity: 0;
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+
+.input-file {
+    text-align: center;
+    background-color: steelblue;
+    color: #f2f4fb;
+    font-size: 30px;
+    color: #fff;
+    border-radius: 15px;
+    border: solid 1px white;
+    padding-top: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.input-file:hover {
+    cursor: pointer;
+    border-color: rgb(255, 197, 89);
+}
+
+#form input[type="text"] {
+    outline: none;
+    border: 0;
+    background-color: steelblue;
+    border-bottom: 3px solid white;
+    width: 400px;
+    display: block;
+    font-size: 25px;
+    color: #f2f4fb;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#form input[type="text"]:hover {
+    border-color: rgb(255, 197, 89);
+}
+
+#form input[type="url"] {
+    padding-top: 20px;
+    outline: none;
+    border: 0;
+    background-color: steelblue;
+    border-bottom: 3px solid white;
+    width: 400px;
+    display: block;
+    font-size: 25px;
+    color: #f2f4fb;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#form input[type="url"]:hover {
+    border-color: rgb(255, 197, 89);
+}
+
+.btn {
+    border: none;
+    display: block;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(36, 90, 172);
+    color: #f2f4fb;
+    padding: 20px 20px;
+    font-size: 25px;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: rgb(25, 77, 155);
+    color: rgb(255, 197, 89);
+}
+
+.btn:active {
+    border: solid rgb(15, 76, 129) 2px;
+}
+
+.grid-container {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 50px;
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 50px;
+    margin-bottom: 30px;
+}
+
+.image {
+    width: 100%;
+    height: 45vh;
+    opacity: 0.95;
+}
+.image:hover {
+    cursor: pointer;
+    opacity: 1;
+    border: rgb(255, 197, 89) solid 1px;
+    border-radius: 50px;
+}
+
+img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+}
+
+#img-title {
+    text-align: center;
+    position: relative;
+    bottom: 50px;
+    color: white;
+    font-size: 25px;
+    opacity: 0.7;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#modalframe {
+    background-color: steelblue;
+    position: fixed;
+    width: 80vw;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    border-radius: 30px;
+    min-height: 90vh;
+}
+
+#modalframe h1 {
+    font-size: 25px;
+    text-align: center;
+    min-height: 25px;
+}
+
+#dark {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#closeModal {
+    text-align: right;
+    font-size: 40px;
+    padding: 5px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+#closeModal:hover {
+    cursor: pointer;
+}
+
+#imageBigContainer {
+    width: 100%;
+    height: 50vh;
+    margin: 0;
+    border-radius: 20px;
+}
+
+#imageBig {
+    object-fit: contain;
+    width: 100%;
+    height: 50vh;
+    border-radius: 50px;
+}
+
+#modalNav {
+    color: white;
+    font-size: 40px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-decoration: none;
+}
+
+#modalNav a:active {
+    color: white;
+    text-decoration: none;
+}
+
+#modalNav a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+#addInfo {
+    min-height: 100px;
+}
+
+#addInfo h2 {
+    font-size: 20px;
+    min-height: 20px;
+}
+
+#addInfo h3 {
+    font-size: 15px;
+    min-height: 15px;
+}
+
+#modalTags {
+    display: inline;
+    font-size: 15px;
+    min-height: 15px;
+    margin-right: 10px;
+    text-decoration: underline;
+}
+#modalTags:hover {
+    display: inline;
+    cursor: pointer;
+    color: rgb(255, 197, 89);
+}
+
+p {
+    color: white;
+    font-size: 20px;
+    margin: 0;
+}
+
+#commentsForm {
+    border-top: white 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#commentsForm h2 {
+    font-size: 20px;
+}
+
+#commentsForm input[type="text"] {
+    outline: none;
+    border: 0;
+    background-color: steelblue;
+    border-bottom: 5px solid white;
+    width: 400px;
+    color: #f2f4fb;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#modal-comment-button {
+    font-size: 20px;
+    margin: 10px;
+    padding: 5px;
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+.entry {
+    margin-top: 15px;
+}
+.entryInfo {
+    color: white;
+    font-size: 15px;
+    margin: 0;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+    text-align: center;
+}
+
+@media screen and (max-width: 940px) {
+    .grid-container {
+        grid-template-columns: 100%;
+    }
+    .image {
+        height: 500px;
+    }
+    img {
+        height: 470px;
+    }
+    #form {
+        flex-direction: column;
+        align-items: center;
+    }
+    #setupleft {
+        margin-right: 0;
+    }
+
+    #setupright {
+        margin-right: 0;
+    }
+}
